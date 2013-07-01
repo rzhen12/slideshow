@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html lang="en">
+	
+	<head>
+		<title>SlideShow</title>
+		<style>
+			h1{
+				margin-left:15%;
+			}
+			div{
+				
+				background-color:grey;
+				width:400px;
+				height:300px;
+				margin-left:15%;
+				display:inline-block;
+			}
+			#imageframe{
+
+			}
+			#firstimage{
+				
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="imageframe">
+			<h1>THIS IS A SLIDE SHOW</h1>
+			
+			<img src="images/beach_houses.jpg"  alt="imgae not shown" id="inframe1" width="400px" height="300px"/>
+			
+			
+				
+		</div>
+				
+		<div id="imageframe2">
+			<h1>THIS IS also A SLIDE SHOW</h1>
+			
+			<img src="images/red_rock.jpg"  alt="imgae not shown" id="inframe2" width="400px" height="300px"/>
+			
+			
+				
+		</div>
+		<script>
+			
+
+			
+			function parentslideshow(ID,tc){
+			var MyImages=document.getElementById(ID);
+			var Images=["images/golden_gate.jpg","images/red_rock.jpg", 
+					"images/tahoe.jpg","images/ventura.jpg","images/beach_houses.jpg"];
+			var imageID=0;
+				function slideshow(){
+					MyImages.setAttribute("src",Images[imageID]);
+					imageID++;
+					if (imageID >= Images.length) {
+						imageID = 0;
+					}
+				}
+				var timer = setInterval(slideshow,tc);
+			}
+			
+			//new parentslideshow(3000);
+			new parentslideshow("inframe1",1000);
+			new parentslideshow("inframe2",3000);
+			
+		</script>
+	</body>
+	
+	
+</html>
