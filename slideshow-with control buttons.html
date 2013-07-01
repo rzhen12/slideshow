@@ -1,0 +1,113 @@
+<!doctype html>
+
+<html lang="en">
+	
+	<head>
+		<title>SlideShow</title>
+		<style>
+			h1{
+				margin-left:15%;
+			}
+			div{
+				
+				background-color:grey;
+				width:400px;
+				height:300px;
+				margin-left:15%;
+				display:inline-block;
+			}
+			input{
+			
+				padding:1em;
+			}
+			#imageframe{
+
+			}
+			#firstimage{
+				
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="imageframe">
+			<h1>THIS IS A SLIDE SHOW</h1>
+			
+			<img src="images/beach_houses.jpg"  alt="imgae not shown" id="inframe1" width="400px" height="300px"/>
+			
+			<p><input type="button" id="p" value="Previous"/> <input type="button" id = "n" value="next IMG"></p>
+				
+		</div>
+				
+		<div id="imageframe2">
+			<h1>THIS IS also A SLIDE SHOW</h1>
+			
+			<img src="images/red_rock.jpg"  alt="imgae not shown" id="inframe2" width="400px" height="300px"/>
+			
+			<p><input type="button" id="p2" value="Previous"/> <input type="button" id="n2" value="next IMG"></p>
+				
+		</div>
+		<script>
+			
+
+			
+			function parentslideshow(ID,tc){
+			var MyImages=document.getElementById(ID);
+								
+			var Images=["images/golden_gate.jpg","images/red_rock.jpg", 
+					"images/tahoe.jpg","images/ventura.jpg","images/beach_houses.jpg"];
+			var imageID=0;
+			
+			var pre = document.getElementById("p");
+			var nex = document.getElementById("n");
+			var prev = document.getElementById("p2");
+			var next = document.getElementById("n2");
+			
+				function slideshow(){
+					MyImages.setAttribute("src",Images[imageID]);
+					imageID++;
+					if (imageID >= Images.length) {
+						imageID = 0;
+					}
+					
+					function preImage(){
+					imageID = imageID--;
+					MyImages.setAttribute("src",Images[imageID]);
+					tc=0;
+					}
+					
+					function nextImage(){
+					imageID = imageID++;	
+					MyImages.setAttribute("src",Images[imageID]);
+					tc=0;		
+					}
+					
+					pre.onclick=preImage;
+					nex.onclick=nextImage;
+					prev.onclick=preImage;
+					next.onclick=nextImage;
+				}
+				
+
+					
+				var timer = setInterval(slideshow,tc);
+			
+			}
+				/*function nextimage(){
+					MyImages.setAttribute("src",Images[imageID++]);
+				}
+				function previousimage(){
+					MyImages.setAttribute("src",Images[imageID--]);
+					
+				}
+				button1.onclick=previousimage;
+				button2.onclick=nextimage;*/
+			//new parentslideshow(3000);
+			new parentslideshow("inframe1",3000);
+			new parentslideshow("inframe2",3000);
+			
+		</script>
+	</body>
+	
+	
+</html>
